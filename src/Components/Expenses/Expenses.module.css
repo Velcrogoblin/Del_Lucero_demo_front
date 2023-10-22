@@ -1,0 +1,58 @@
+.containerExpenses {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+.containerExpenses button {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  background-color: rgb(94, 245, 184);
+  border: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+
+.gridExpenses {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.cards {
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.129);
+  width: 100px;
+  height: 150px;
+  line-height: 15px;
+}
+
+.cards h3 {
+  font-size: 14pt;
+  text-align: center;
+}
+
+.cards h4 {
+  font-size: 12pt;
+  text-align: center;
+}
+
+.cards p {
+  display: flex;
+  margin: 5px auto;
+  justify-content: center;
+  align-items: center;
+  font-size: small;
+  margin-top: 10px;
+  text-align: center;
+}

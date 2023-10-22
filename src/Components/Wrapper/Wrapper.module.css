@@ -1,0 +1,5 @@
+.appBodyOutlet {
+  height: 700px;
+  overflow: auto;
+  overflow-y: auto;
+}

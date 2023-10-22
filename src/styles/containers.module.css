@@ -1,0 +1,52 @@
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
+
+.tableContainer {
+  margin: 15px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loadingContainer {
+  position: fixed;
+  left: -260px;
+  top: 150px;
+}
+
+.ordersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ordersContainerNew {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(169, 54%, 73%);
+  border-radius: 6px;
+  margin: 10px;
+  padding: 10px;
+  width: 38%;
+}
+
+.order p {
+  line-height: 3px;
+}
