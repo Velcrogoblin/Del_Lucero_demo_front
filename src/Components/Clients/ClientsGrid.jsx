@@ -16,7 +16,7 @@ export const ClientsGrid = () => {
 
   useEffect(() => {
     axios
-      .get(VITE_URL_CLIENTS, token)
+      .get(VITE_URL_CLIENTS)
       .then((res) => setClient(res.data))
   }, []);
 
