@@ -23,7 +23,7 @@ export const ClientCreate = () => {
     e.preventDefault();
     // setLoading(true);
     try {
-      const response = await axios.post(VITE_URL_CLIENTS, {...client, token});
+      const response = await axios.post(VITE_URL_CLIENTS, {...client});
       // setLoading(false);
       alert(response.data.message);
       navigate("/clients");
