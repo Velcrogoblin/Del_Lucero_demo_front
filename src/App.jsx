@@ -33,28 +33,28 @@ import { SupplyCreate } from "./Components/Supplies/SupplyCreate";
 import { SupplyEdit } from "./Components/Supplies/SupplyEdit";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [token, setToken] = useState("");
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [token, setToken] = useState("");
 
-  useEffect(() => {
-    const storedToken = window.localStorage.getItem("token");
-    if (storedToken && storedToken.length > 150) {
-      setIsLoggedIn(true);
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   const storedToken = window.localStorage.getItem("token");
+  //   if (storedToken && storedToken.length > 150) {
+  //     setIsLoggedIn(true);
+  //   }
+  // }, [token]);
 
   return (
     <div>
       <Routes>
         <Route path="/" element={<Wrapper />} />
-        {isLoggedIn ? (
+        {/* {isLoggedIn ? (
           <Route
             index
             element={<Menu setToken={setToken} setIsLoggedIn={setIsLoggedIn} />}
           />
         ) : (
           <Route index element={<Login setToken={setToken} />} />
-        )}
+        )} */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route index element={<Menu />} />
