@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import styles from "./ClientCreate.module.css";
 import inputs from "../../styles/inputs.module.css";
 const VITE_URL_CLIENTS = import.meta.env.VITE_URL_CLIENTS;
@@ -13,7 +13,7 @@ export const ClientCreate = () => {
     phone: "",
     address: "",
   });
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
     setClient({ ...client, [e.target.name]: e.target.value });
@@ -39,9 +39,9 @@ export const ClientCreate = () => {
  
     return (
       <>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerCreate}>
             <h2 style={{ color: "white", textAlign: "center" }}>
               CREAR CLIENTE NUEVO
@@ -90,7 +90,7 @@ export const ClientCreate = () => {
             <button onClick={handleSubmit}>CREAR</button>
             <button onClick={() => navigate("/clients")}>VOLVER</button>
           </div>
-        )}
+        {/* )} */}
       </>
     );
   }
