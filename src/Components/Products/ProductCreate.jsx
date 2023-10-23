@@ -64,7 +64,7 @@ export const ProductCreate = () => {
     axios
       .get(VITE_URL_SUPPLIES)
       .then((res) => setSupplies(res.data))
-      .then(() => setLoading(false));
+      // .then(() => setLoading(false));
   }, []);
 
  
