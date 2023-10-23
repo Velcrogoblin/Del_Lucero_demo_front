@@ -44,19 +44,20 @@ export const ProductCreate = () => {
 
   const handleSubmit = async (e) => {
     // setLoading(true);
-    try {
-      const response = await axios.post(VITE_URL_PRODUCTS, {
-        ...product
-      });
+    // try {
+    //   const response = await axios.post(VITE_URL_PRODUCTS, {
+    //     ...product
+    //   });
 
-      // setLoading(false);
-      alert(response.data.message);
+    //   setLoading(false);
+    //   alert(response.data.message);
 
-      navigate("/catalogue");
-    } catch (error) {
-      // setLoading(false);
-      alert(error.response.data.message);
-    }
+    //   navigate("/catalogue");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert(error.response.data.message);
+    // }
+    alert("You must be an admin to create");
   };
 
   useEffect(() => {

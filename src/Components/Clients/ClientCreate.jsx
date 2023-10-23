@@ -22,17 +22,17 @@ export const ClientCreate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // setLoading(true);
-    try {
-      const response = await axios.post(VITE_URL_CLIENTS, {...client});
-      // setLoading(false);
-      alert(response.data.message);
-      navigate("/clients");
-    } catch (error) {
-      // setLoading(false);
-      console.error(error);
-      alert(error.response.data.message);
-    }
-    // alert("You must be an admin to create");
+    // try {
+    //   const response = await axios.post(VITE_URL_CLIENTS, {...client});
+    //   setLoading(false);
+    //   alert(response.data.message);
+    //   navigate("/clients");
+    // } catch (error) {
+    //   setLoading(false);
+    //   console.error(error);
+    //   alert(error.response.data.message);
+    // }
+    alert("You must be an admin to create");
   };
 
 

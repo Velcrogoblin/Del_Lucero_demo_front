@@ -18,19 +18,20 @@ export const SupplyEdit = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    try {
-      await axios.put(VITE_URL_SUPPLIES, {
-        ...supply,
-        token,
-      });
-      setLoading(false);
-      alert("insumo editado");
-      navigate("/supplies");
-    } catch (error) {
-      setLoading(false);
-      alert("ocurrio un error");
-    }
+    // setLoading(true);
+    // try {
+    //   await axios.put(VITE_URL_SUPPLIES, {
+    //     ...supply,
+    //     token,
+    //   });
+    //   setLoading(false);
+    //   alert("insumo editado");
+    //   navigate("/supplies");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert("ocurrio un error");
+    // }
+    alert("You must be an admin to edit");
   };
 
   useEffect(() => {

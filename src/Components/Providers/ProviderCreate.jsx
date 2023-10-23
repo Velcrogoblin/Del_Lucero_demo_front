@@ -43,19 +43,20 @@ export const ProviderCreate = () => {
 
   const handleSubmit = async (e) => {
     // setLoading(true);
-    try {
-      const response = await axios.post(VITE_URL_PROVIDERS, {
-        ...provider
-      });
-      // setLoading(false);
-      alert(response.data.message);
+    // try {
+    //   const response = await axios.post(VITE_URL_PROVIDERS, {
+    //     ...provider
+    //   });
+    //   setLoading(false);
+    //   alert(response.data.message);
 
-      navigate("/providers");
-    } catch (error) {
-      // setLoading(false);
+    //   navigate("/providers");
+    // } catch (error) {
+    //   setLoading(false);
 
-      alert(error.response.data.message);
-    }
+    //   alert(error.response.data.message);
+    // }
+    alert("You must be an admin to create");
   };
 
   useEffect(() => {

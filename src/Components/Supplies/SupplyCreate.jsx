@@ -20,16 +20,17 @@ export const SupplyCreate = () => {
 
   const handleSubmit = async () => {
     // setLoading(true);
-    try {
-      let response = await axios.post(VITE_URL_SUPPLIES, {
-        ...supply});
-      // setLoading(false);
-      alert(response.data.message);
-      navigate("/supplies");
-    } catch (error) {
-      // setLoading(false);
-      alert(error.response.data.error);
-    }
+    // try {
+    //   let response = await axios.post(VITE_URL_SUPPLIES, {
+    //     ...supply});
+    //   setLoading(false);
+    //   alert(response.data.message);
+    //   navigate("/supplies");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert(error.response.data.error);
+    // }
+    alert("You must be an admin to create");
   };
 
  

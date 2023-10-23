@@ -21,18 +21,18 @@ export const ExpenseCreate = () => {
 
   const handleSubmit = async () => {
     // setLoading(true);
-    try {
-      let response = await axios.post(VITE_URL_EXPENSES, {
-        ...expense
-      });
-      // setLoading(false);
-      alert(response.data.message);
-      navigate("/expenses");
-    } catch (error) {
-      // setLoading(false);
-      alert(error.response.data.error);
-    }
-    // alert("You must be an admin to create");
+    // try {
+    //   let response = await axios.post(VITE_URL_EXPENSES, {
+    //     ...expense
+    //   });
+    //   setLoading(false);
+    //   alert(response.data.message);
+    //   navigate("/expenses");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert(error.response.data.error);
+    // }
+    alert("You must be an admin to create");
   };
 
 

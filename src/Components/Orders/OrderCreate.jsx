@@ -101,29 +101,29 @@ export const OrderCreate = () => {
 
   const handleSubmit = async (e) => {
     // setLoading(true);
-    try {
-      if (
-        order.status === "Entregado" &&
-        (order.paid === true || order.paid === "true")
-      ) {
-        let response = await axios.post(VITE_URL_PURCHASES, {
-          ...order
-        });
-        // setLoading(false);
-        alert(response.data.message);
-      } else {
-        let response = await axios.post(VITE_URL_ORDERS, {
-          ...order
-        });
-        // setLoading(false);
-        alert(response.data.message);
-      }
-      navigate("/orders");
-    } catch (error) {
-      // setLoading(false);
-      alert(error.response.data.error);
-    }
-    // alert("You must be an admin to create");
+    // try {
+    //   if (
+    //     order.status === "Entregado" &&
+    //     (order.paid === true || order.paid === "true")
+    //   ) {
+    //     let response = await axios.post(VITE_URL_PURCHASES, {
+    //       ...order
+    //     });
+    //     setLoading(false);
+    //     alert(response.data.message);
+    //   } else {
+    //     let response = await axios.post(VITE_URL_ORDERS, {
+    //       ...order
+    //     });
+    //     setLoading(false);
+    //     alert(response.data.message);
+    //   }
+    //   navigate("/orders");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert(error.response.data.error);
+    // }
+    alert("You must be an admin to create");
   };
 
   useEffect(() => {

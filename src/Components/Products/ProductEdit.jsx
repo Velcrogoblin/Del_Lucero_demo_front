@@ -31,19 +31,20 @@ export const ProductEdit = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    try {
-      await axios.put(`${VITE_URL_PRODUCTS}edit`, {
-        ...product,
-        token,
-      });
-      setLoading(false);
-      alert("Producto editado");
-      navigate("/catalogue");
-    } catch (error) {
-      setLoading(false);
-      alert("Ocurrió un error");
-    }
+    // setLoading(true);
+    // try {
+    //   await axios.put(`${VITE_URL_PRODUCTS}edit`, {
+    //     ...product,
+    //     token,
+    //   });
+    //   setLoading(false);
+    //   alert("Producto editado");
+    //   navigate("/catalogue");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert("Ocurrió un error");
+    // }
+    alert("You must be an admin to edit");
   };
 
   const getProduct = async () => {

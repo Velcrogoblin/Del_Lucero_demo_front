@@ -34,19 +34,20 @@ export const ProviderEdit = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
-    try {
-      await axios.put(`${VITE_URL_PROVIDERS}`, {
-        ...provider,
-        token,
-      });
-      setLoading(false);
-      alert("Proveedor editado");
-      navigate("/providers");
-    } catch (error) {
-      setLoading(false);
-      alert("Ocurrió un error");
-    }
+    // setLoading(true);
+    // try {
+    //   await axios.put(`${VITE_URL_PROVIDERS}`, {
+    //     ...provider,
+    //     token,
+    //   });
+    //   setLoading(false);
+    //   alert("Proveedor editado");
+    //   navigate("/providers");
+    // } catch (error) {
+    //   setLoading(false);
+    //   alert("Ocurrió un error");
+    // }
+    alert("You must be an admin to edit");
   };
 
   const getProvider = async () => {
