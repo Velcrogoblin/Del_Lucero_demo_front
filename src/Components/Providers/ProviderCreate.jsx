@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import styles from "./ProvCreate.module.css";
 import inputs from "../../styles/inputs.module.css";
 const VITE_URL_PROVIDERS = import.meta.env.VITE_URL_PROVIDERS;
@@ -17,7 +17,7 @@ export const ProviderCreate = () => {
     website: "",
     supplies_name: [],
   });
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     if (e.target.name === "supplies_name") {
@@ -42,18 +42,17 @@ export const ProviderCreate = () => {
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await axios.post(VITE_URL_PROVIDERS, {
-        ...provider,
-        token,
+        ...provider
       });
-      setLoading(false);
+      // setLoading(false);
       alert(response.data.message);
 
       navigate("/providers");
     } catch (error) {
-      setLoading(false);
+      // setLoading(false);
 
       alert(error.response.data.message);
     }
@@ -66,9 +65,9 @@ export const ProviderCreate = () => {
  
     return (
       <div>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerCreate}>
             <h2>CREAR NUEVO PROVEEDOR</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -156,7 +155,7 @@ export const ProviderCreate = () => {
               VOLVER
             </button>
           </div>
-        )}
+        {/* )} */}
       </div>
     );
   }

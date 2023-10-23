@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./ExpenseCreate.module.css";
 const VITE_URL_EXPENSES = import.meta.env.VITE_URL_EXPENSES;
 
 export const ExpenseCreate = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [expense, setExpense] = useState({
     name: "",
     date: new Date().toISOString().slice(0, 10),
@@ -20,17 +20,16 @@ export const ExpenseCreate = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       let response = await axios.post(VITE_URL_EXPENSES, {
-        ...expense,
-        token,
+        ...expense
       });
-      setLoading(false);
+      // setLoading(false);
       alert(response.data.message);
       navigate("/expenses");
     } catch (error) {
-      setLoading(false);
+      // setLoading(false);
       alert(error.response.data.error);
     }
     // alert("You must be an admin to create");
@@ -40,9 +39,9 @@ export const ExpenseCreate = () => {
  
     return (
       <div>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerCreate}>
             <h2 style={{ color: "white", textAlign: "center" }}>
               CREAR NUEVO GASTO
@@ -84,7 +83,7 @@ export const ExpenseCreate = () => {
               VOLVER
             </button>
           </div>
-        )}
+        {/* )} */}
       </div>
     );
   }

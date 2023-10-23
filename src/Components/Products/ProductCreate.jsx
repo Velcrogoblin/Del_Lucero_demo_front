@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./ProductCreate.module.css";
 const VITE_URL_PRODUCTS = import.meta.env.VITE_URL_PRODUCTS;
@@ -20,7 +20,7 @@ export const ProductCreate = () => {
     duration: 0,
     product_supplies: [],
   });
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
@@ -43,19 +43,18 @@ export const ProductCreate = () => {
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await axios.post(VITE_URL_PRODUCTS, {
-        ...product,
-        token,
+        ...product
       });
 
-      setLoading(false);
+      // setLoading(false);
       alert(response.data.message);
 
       navigate("/catalogue");
     } catch (error) {
-      setLoading(false);
+      // setLoading(false);
       alert(error.response.data.message);
     }
   };
@@ -70,9 +69,9 @@ export const ProductCreate = () => {
  
     return (
       <>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerCreate}>
             <h2>CREAR NUEVO PRODUCTO</h2>
             <form>
@@ -193,7 +192,7 @@ export const ProductCreate = () => {
               VOLVER
             </button>
           </div>
-        )}
+        {/* )} */}
       </>
     );
   }

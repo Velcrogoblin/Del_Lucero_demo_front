@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Loading } from "../Loading/Loading";
@@ -8,7 +8,7 @@ const VITE_URL_SUPPLIES = import.meta.env.VITE_URL_SUPPLIES;
 
 export const SupplyCreate = () => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [supply, setSupply] = useState({
     name: "",
     cost: 0,
@@ -19,17 +19,15 @@ export const SupplyCreate = () => {
   };
 
   const handleSubmit = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       let response = await axios.post(VITE_URL_SUPPLIES, {
-        ...supply,
-        token,
-      });
-      setLoading(false);
+        ...supply});
+      // setLoading(false);
       alert(response.data.message);
       navigate("/supplies");
     } catch (error) {
-      setLoading(false);
+      // setLoading(false);
       alert(error.response.data.error);
     }
   };
@@ -39,9 +37,9 @@ export const SupplyCreate = () => {
  
     return (
       <div>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerCreate}>
             <h2>CREAR NUEVO INSUMO</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -70,7 +68,7 @@ export const SupplyCreate = () => {
               VOLVER
             </button>
           </div>
-        )}
+        {/* )} */}
       </div>
     );
   }

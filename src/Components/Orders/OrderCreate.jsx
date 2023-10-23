@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import buttons from "../../styles/buttons.module.css";
 import styles from "./orders.module.css";
@@ -17,7 +17,7 @@ export const OrderCreate = () => {
     products: [],
     date: new Date().toISOString().slice(0, 10),
   });
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [clients, setClients] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -100,29 +100,27 @@ export const OrderCreate = () => {
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true);
+    // setLoading(true);
     try {
       if (
         order.status === "Entregado" &&
         (order.paid === true || order.paid === "true")
       ) {
         let response = await axios.post(VITE_URL_PURCHASES, {
-          ...order,
-          token,
+          ...order
         });
-        setLoading(false);
+        // setLoading(false);
         alert(response.data.message);
       } else {
         let response = await axios.post(VITE_URL_ORDERS, {
-          ...order,
-          token,
+          ...order
         });
-        setLoading(false);
+        // setLoading(false);
         alert(response.data.message);
       }
       navigate("/orders");
     } catch (error) {
-      setLoading(false);
+      // setLoading(false);
       alert(error.response.data.error);
     }
     // alert("You must be an admin to create");
@@ -137,9 +135,9 @@ export const OrderCreate = () => {
  
     return (
       <>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerEdit}>
             <h2>CREAR NUEVO PEDIDO</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -316,7 +314,7 @@ export const OrderCreate = () => {
             <button onClick={() => handleSubmit()}>CREAR PEDIDO</button>
             <button onClick={() => navigate("/orders")}>VOLVER</button>
           </div>
-        )}
+        {/* )} */}
       </>
     );
   }
