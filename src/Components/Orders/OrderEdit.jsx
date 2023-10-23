@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import { Loading } from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./orders.module.css";
 import buttons from "../../styles/buttons.module.css";
@@ -13,7 +13,7 @@ const VITE_URL_PURCHASES = import.meta.env.VITE_URL_PURCHASES;
 export const OrderEdit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [order, setOrder] = useState();
   const [products, setProducts] = useState([]);
 
@@ -140,15 +140,15 @@ export const OrderEdit = () => {
     axios
       .get(VITE_URL_SUPPLIES)
       // .then((res) => setSupplies(res.data.filter((s) => s.name === "cera")))
-      // .then(() => setLoading(false));
+      .then(() => setLoading(false));
   }, []);
 
   
     return (
       <>
-        {/* {loading ? (
+        {loading ? (
           <Loading />
-        ) : ( */}
+        ) : (
           <div className={styles.containerEdit}>
             <h2>EDITAR PRODUCTO</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -329,7 +329,7 @@ export const OrderEdit = () => {
             <button onClick={() => handleSubmit()}>MODIFICAR</button>
             <button onClick={() => navigate("/orders")}>VOLVER</button>
           </div>
-        {/* )} */}
+        )}
       </>
     );
   }

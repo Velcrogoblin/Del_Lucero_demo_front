@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import { Loading } from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import styles from "./ClientEdit.module.css";
 import inputs from "../../styles/inputs.module.css";
 const VITE_URL_CLIENTS = import.meta.env.VITE_URL_CLIENTS;
@@ -10,7 +10,7 @@ export const ClientEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [client, setClient] = useState();
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const handleSubmit = async () => {
     // setLoading(true);
@@ -36,16 +36,16 @@ export const ClientEdit = () => {
     axios
       .get(`${VITE_URL_CLIENTS}id/${id}`)
       .then((resp) => setClient(resp.data))
-      // .then(() => setLoading(false))
+      .then(() => setLoading(false))
       .catch((err) => console.error(err));
   }, []);
 
  
     return (
       <div>
-        {/* {loading ? (
+        {loading ? (
           <Loading />
-        ) : ( */}
+        ) : (
           <div className={styles.containerEdit}>
             <h2>EDITAR CLIENTE</h2>
             {client && (
@@ -89,7 +89,7 @@ export const ClientEdit = () => {
               VOLVER
             </button>
           </div>
-        {/* )} */}
+        )}
       </div>
     );
   }

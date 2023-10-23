@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import { Loading } from "../Loading/Loading";
+import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./ExpenseEdit.module.css";
 const VITE_URL_EXPENSES = import.meta.env.VITE_URL_EXPENSES;
@@ -11,7 +11,7 @@ export const ExpenseEdit = () => {
   const { id } = useParams();
 
   const [expense, setExpense] = useState();
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
     setExpense({ ...expense, [e.target.name]: e.target.value });
@@ -47,15 +47,15 @@ export const ExpenseEdit = () => {
         };
         setExpense(formattedExpense);
       })
-      // .then(() => setLoading(false));
+      .then(() => setLoading(false));
   }, []);
 
   
     return (
       <div>
-        {/* {loading ? (
+        {loading ? (
           <Loading />
-        ) : ( */}
+        ) : (
           <div className={styles.containerEdit}>
             <h2 style={{ color: "white", textAlign: "center" }}>
               EDITAR GASTO
@@ -99,7 +99,7 @@ export const ExpenseEdit = () => {
             <button onClick={() => handleSubmit()}>MODIFICAR</button>
             <button onClick={() => navigate("/expenses")}>VOLVER</button>
           </div>
-        {/* )} */}
+        )}
       </div>
     );
   }
