@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./ProviderEdit.module.css";
 const VITE_URL_PROVIDERS = import.meta.env.VITE_URL_PROVIDERS;
@@ -11,7 +11,7 @@ export const ProviderEdit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [provider, setProvider] = useState([]);
   const [supplies, setSupplies] = useState([]);
 
@@ -62,15 +62,15 @@ export const ProviderEdit = () => {
     axios
       .get(VITE_URL_SUPPLIES)
       .then((res) => setSupplies(res.data))
-      .then(() => setLoading(false));
+      // .then(() => setLoading(false));
   }, []);
 
   
     return (
       <>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerEdit}>
             <h2>EDITAR PROVEEDOR</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -158,7 +158,7 @@ export const ProviderEdit = () => {
             <button onClick={() => handleSubmit()}>MODIFICAR</button>
             <button onClick={() => navigate("/providers")}>VOLVER</button>
           </div>
-        )}
+        {/* )} */}
       </>
     );
   }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { Loading } from "../Loading/Loading";
+// import { Loading } from "../Loading/Loading";
 import inputs from "../../styles/inputs.module.css";
 import styles from "./SupplyEdit.module.css";
 const VITE_URL_SUPPLIES = import.meta.env.VITE_URL_SUPPLIES;
@@ -11,7 +11,7 @@ export const SupplyEdit = () => {
   const { id } = useParams();
 
   const [supply, setSupply] = useState();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   const handleChange = (e) => {
     setSupply({ ...supply, [e.target.name]: e.target.value });
@@ -38,15 +38,15 @@ export const SupplyEdit = () => {
     axios
       .get(`${VITE_URL_SUPPLIES}id/${id}`)
       .then((res) => setSupply(res.data))
-      .then(() => setLoading(false));
+      // .then(() => setLoading(false));
   }, []);
 
   
     return (
       <div>
-        {loading ? (
+        {/* {loading ? (
           <Loading />
-        ) : (
+        ) : ( */}
           <div className={styles.containerEdit}>
             <h2>EDITAR INSUMO</h2>
 
@@ -76,7 +76,7 @@ export const SupplyEdit = () => {
             <button onClick={() => handleSubmit()}>MODIFICAR</button>
             <button onClick={() => navigate("/supplies")}>VOLVER</button>
           </div>
-        )}
+        {/* )} */}
       </div>
     );
   }
